@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import AnimeCard from "../Components/AnimeCard";
 
 const Cards = () => {
-  const [get, setGet] = useState([]);
+  const [get, setGet] = useState(null);
 
   useEffect(() => {
     async function api() {
       try {
-        const apiData = await axios.get("http://localhost:3001/myAnime");
+        const apiData = await axios.get(process.env.REACT_APP_API_URL);
         setGet(apiData.data);
       } catch (error) {
         console.log("something is wrong");

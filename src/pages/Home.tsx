@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { globalContext } from "../StoreContext/Context";
+// import { globalContext } from "../StoreContext/Context";
 
 const Home = () => {
-  const { state, dispatch } = globalContext();
+  // const { state, dispatch } = globalContext();
   return (
     <div>
       <div
@@ -21,17 +21,6 @@ const Home = () => {
             <Link to="/cards">
               <button className="btn btn-primary">Get Started</button>
             </Link>
-            <div>{state.switch ? "mark" : "becca"}</div>
-            <button
-              onClick={() => dispatch({ type: "mySwitch", payload: true })}
-            >
-              change1
-            </button>
-            <button
-              onClick={() => dispatch({ type: "mySwitch", payload: false })}
-            >
-              change2
-            </button>
           </div>
         </div>
       </div>
