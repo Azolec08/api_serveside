@@ -1,0 +1,21 @@
+.song_container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 5px 0 20px 0;
+  white-space: nowrap;
+}
+
+.song_title {
+  position: absolute;
+  animation: moveLeft 10s linear infinite;
+}
+
+@keyframes moveLeft {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
