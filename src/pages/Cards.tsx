@@ -2,13 +2,22 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import AnimeCard from "../Components/AnimeCard";
 
+// interface ImportMeta {
+//   readonly env: {
+//     REACT_APP_API_URL: string;
+//   };
+// }
+
+// const apiUrl: string = import.meta.env.REACT_APP_API_URL;
+
 const Cards = () => {
-  const [get, setGet] = useState(null);
+  const [get, setGet] = useState<any>(null);
 
   useEffect(() => {
     async function api() {
       try {
-        const apiData = await axios.get(process.env.REACT_APP_API_URL);
+        // const apiUrl = import.meta.env.REACT_APP_API_URL;
+        const apiData = await axios.get("http://localhost:3001/myAnime");
         setGet(apiData.data);
       } catch (error) {
         console.log("something is wrong");
