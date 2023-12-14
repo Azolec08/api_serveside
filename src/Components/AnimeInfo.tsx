@@ -67,7 +67,9 @@ export function AnimeInfo({ myData }: animeInfoProps) {
                         />
                       </a>
                       <div className="flex flex-col items-center">
-                        <h1 className="text-2xl font-bold">{myData.title}</h1>
+                        <h1 className="text-2xl font-bold text-center">
+                          {myData.title}
+                        </h1>
                         <p className="py-6 text-center">
                           Pogi si Mark Angelo Celoza
                         </p>
