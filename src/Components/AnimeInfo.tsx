@@ -24,9 +24,11 @@ export function AnimeInfo({ myData }: animeInfoProps) {
         <button
           type="button"
           onClick={openModal}
-          className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="rounded-md bg-black/20 py-2 px-2 text-[8px] font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75
+          md:text-sm 
+          "
         >
-          Open dialog
+          More Information
         </button>
       </div>
 
@@ -58,13 +60,15 @@ export function AnimeInfo({ myData }: animeInfoProps) {
                 <Dialog.Panel className="w-[1000px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className="hero  bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                      <img
-                        src={myData.img}
-                        className="max-w-sm rounded-lg shadow-2xl"
-                      />
-                      <div>
-                        <h1 className="text-5xl font-bold">Box Office News!</h1>
-                        <p className="py-6">
+                      <a href={myData.img}>
+                        <img
+                          src={myData.img}
+                          className="w-60 h-60 rounded-lg shadow-2xl md:w-4/5 md:h-64 md"
+                        />
+                      </a>
+                      <div className="flex flex-col items-center">
+                        <h1 className="text-2xl font-bold">{myData.title}</h1>
+                        <p className="py-6 text-center">
                           Provident cupiditate voluptatem et in. Quaerat fugiat
                           ut assumenda excepturi exercitationem quasi. In
                           deleniti eaque aut repudiandae et a id nisi.

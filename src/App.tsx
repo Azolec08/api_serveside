@@ -9,8 +9,8 @@ function App() {
     <Routes>
       <Route element={<FrameContext />}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/Cards" element={<Cards />} />
+        <Route path="/about" element={<About />} />
       </Route>
     </Routes>
   );

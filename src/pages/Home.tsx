@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
-// import { globalContext } from "../StoreContext/Context";
 
 const Home = () => {
-  // const { state, dispatch } = globalContext();
   return (
     <div>
       <div
-        className="hero min-h-screen bg-contain"
+        className="hero h-[70vh] bg-cover"
         style={{
           backgroundImage:
-            "url('https://rare-gallery.com/thumbnail/1377037-solo-leveling-manhwa-sung-jinwoo-shadows-4k-pc.jpg')",
+            "url('https://wallpaperaccess.com/full/1799795.jpg')",
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Anime World</h1>
@@ -21,13 +18,15 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="w-full px-2 py-3 flex items-center justify-around">
+      <div className="w-full px-2 py-3 flex items-center justify-around bg-hero-second bg-cover">
         <img src="./images/image1.png" alt="img" className="w-40 md" />
-        <p className="text-xl text-center font-semibold">Explore Anime World</p>
+        <p className="text-xl text-center text-white font-semibold">
+          Explore Anime World
+        </p>
       </div>
-      <div className="w-full px-2 py-3 flex items-center justify-around">
+      <div className="w-full px-2 py-3 flex items-center justify-around bg-music-texture bg-start bg-cover">
         <div className="flex flex-col items-center gap-y-2">
-          <p className="text-xl text-center font-semibold">
+          <p className="text-xl text-white text-center font-semibold">
             Explore Trailers And Music
           </p>
           <Link to="/cards">

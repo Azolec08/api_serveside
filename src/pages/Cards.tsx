@@ -37,7 +37,7 @@ const Cards = () => {
         });
 
   return (
-    <main>
+    <main className="">
       <div className="p-5 flex flex-row justify-center">
         <Combobox value={selectedPerson} onChange={setSelectedPerson}>
           <div className="relative">
@@ -98,7 +98,7 @@ const Cards = () => {
           />
         </div>
       ) : (
-        <div className="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 place-items-center bg-trailer-texture bg-contain py-5 lg:grid-cols-3">
           {animeData.map((item: any) => {
             return (
               <div key={item.id}>
