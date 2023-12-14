@@ -60,7 +60,7 @@ export function AnimeInfo({ myData }: animeInfoProps) {
                 <Dialog.Panel className="w-[1000px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <div className="hero  bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
-                      <a href={myData.img}>
+                      <a href={myData.img} className="flex justify-center">
                         <img
                           src={myData.img}
                           className="w-60 h-60 rounded-lg shadow-2xl md:w-4/5 md:h-64 md"
@@ -69,9 +69,7 @@ export function AnimeInfo({ myData }: animeInfoProps) {
                       <div className="flex flex-col items-center">
                         <h1 className="text-2xl font-bold">{myData.title}</h1>
                         <p className="py-6 text-center">
-                          Provident cupiditate voluptatem et in. Quaerat fugiat
-                          ut assumenda excepturi exercitationem quasi. In
-                          deleniti eaque aut repudiandae et a id nisi.
+                          Pogi si Mark Angelo Celoza
                         </p>
                       </div>
                     </div>
