@@ -1,4 +1,5 @@
 import { cardType } from "../types";
+import { AnimeInfo } from "./AnimeInfo";
 import ModalCard from "./ModalCard";
 
 interface CardProps {
@@ -23,6 +24,9 @@ export default function AnimeCard({ allData }: CardProps) {
           <p className="text-center ">{text}</p>
           <div className="card-actions justify-center mt-2">
             <ModalCard allData={allData} />
+          </div>
+          <div className="">
+            <AnimeInfo myData={allData} />
           </div>
         </div>
       </div>

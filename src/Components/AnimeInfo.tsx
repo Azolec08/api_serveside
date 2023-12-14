@@ -1,16 +1,14 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
 import { cardType } from "../types";
-import ReactPlayer from "react-player";
-import "../style/cardstyle.scss";
+import { useState } from "react";
 
-interface modalProps {
-  allData: cardType;
-}
+type animeInfoProps = {
+  myData: cardType;
+};
 
-export default function ModalCard({ allData }: modalProps) {
-  const { title, text, songTitle } = allData;
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
+export function AnimeInfo({ myData }: animeInfoProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -28,7 +26,7 @@ export default function ModalCard({ allData }: modalProps) {
           onClick={openModal}
           className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
-          More Information
+          Open dialog
         </button>
       </div>
 
@@ -47,7 +45,7 @@ export default function ModalCard({ allData }: modalProps) {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full w-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -57,31 +55,23 @@ export default function ModalCard({ allData }: modalProps) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <ReactPlayer
-                    url={allData.video}
-                    controls
-                    width="100%"
-                    height="100%"
-                  />
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900 pt-2 w-"
-                  >
-                    {title}
-                  </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">{text}</p>
-                  </div>
-                  <div className="w-full flex flex-col  items-center py-3 gap-y-2">
-                    <div className="song_container">
-                      <div className="song_title">{songTitle}</div>
+                <Dialog.Panel className="w-[1000px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <div className="hero  bg-base-200">
+                    <div className="hero-content flex-col lg:flex-row-reverse">
+                      <img
+                        src={myData.img}
+                        className="max-w-sm rounded-lg shadow-2xl"
+                      />
+                      <div>
+                        <h1 className="text-5xl font-bold">Box Office News!</h1>
+                        <p className="py-6">
+                          Provident cupiditate voluptatem et in. Quaerat fugiat
+                          ut assumenda excepturi exercitationem quasi. In
+                          deleniti eaque aut repudiandae et a id nisi.
+                        </p>
+                      </div>
                     </div>
-                    <audio controls className="w-64">
-                      <source src={allData.song} type="audio/mp3" />
-                    </audio>
                   </div>
-
                   <div className="mt-4">
                     <button
                       type="button"

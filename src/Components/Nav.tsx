@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DropDown from "./dropDown";
 
 export default function Nav() {
   return (
@@ -65,7 +66,7 @@ export default function Nav() {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Sign In</a>
+          <DropDown />
         </div>
       </div>
     </div>

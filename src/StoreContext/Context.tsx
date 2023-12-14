@@ -7,6 +7,8 @@ import {
   useReducer,
 } from "react";
 
+import allData from "../api/allData.json";
+
 import { stateType, actionType } from "../types";
 type contextYpes = {
   state: stateType;
@@ -17,7 +19,7 @@ type childrenType = {
   children: ReactNode;
 };
 
-const myContext = createContext({} as contextYpes);
+const myContext = createContext<contextYpes | undefined>(undefined);
 
 export function globalContext() {
   const context = useContext(myContext);
@@ -34,15 +36,30 @@ const reducer: Reducer<stateType, actionType> = (state, action) => {
       return { ...state, num: state.num + 1 };
     case "mySwitch":
       return { ...state, switch: action.payload };
+    case "myApi":
+      return { ...state, api: action.payload };
+    case "switchClick":
+      return { ...state, switchTwo: action.item };
     default:
       return state;
   }
 };
 
 export const UserProvider = ({ children }: childrenType) => {
+  const myData = () => {
+    let data = [];
+    for (let i = 0; i < allData.length + 1; i++) {
+      data[i] = 0;
+    }
+
+    return data;
+  };
+
   const initialization = {
     num: 0,
     switch: false,
+    switchTwo: false,
+    api: myData(),
   };
 
   const [state, dispatch] = useReducer(reducer, initialization);
