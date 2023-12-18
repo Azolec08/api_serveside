@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import DropDown from "./dropDown";
+import { globalContext } from "../StoreContext/Context";
 
 export default function Nav() {
+  const { state } = globalContext();
   return (
     <div>
       <div className="navbar ">
@@ -27,9 +29,14 @@ export default function Nav() {
                 <a>Anime List</a>
               </li>
             </Link>
-            <Link to="/About">
-              <li>
-                <a>About</a>
+            <Link to="/favorite">
+              <li className="relative">
+                {state.num === 0 ? (
+                  <span className="absolute  p-2 right-2"></span>
+                ) : (
+                  <span className="w-[0] absolute top-[-1px] p-2 right-2 bg-red-500" />
+                )}
+                <a>Favorite </a>
               </li>
             </Link>
             <Link to="/About">

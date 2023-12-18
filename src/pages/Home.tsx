@@ -30,7 +30,7 @@ const Home = () => {
             Explore Trailers And Music
           </p>
           <Link to="/cards">
-            <button className="btn p-2 text-sm btn-primary">Get Started</button>
+            <div className="btn p-2 text-sm btn-primary">Get Started</div>
           </Link>
         </div>
         <img src="./images/image2.png" alt="img2" className="w-40" />

@@ -2,8 +2,10 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
+import { globalContext } from "../StoreContext/Context";
 
 export default function DropDown() {
+  const { state } = globalContext();
   return (
     <div className="top-16  text-left">
       <Menu as="div" className="relative inline-block text-left">
@@ -57,6 +59,24 @@ export default function DropDown() {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
+                  <Link className="relative" to="/favorite">
+                    {state.num === 0 ? (
+                      <span className="absolute p-2 left-7"></span>
+                    ) : (
+                      <span className="w-[0] absolute top-2 p-2 left-[60px] rounded-full bg-red-500"></span>
+                    )}
+                    <button
+                      className={`${
+                        active ? "bg-violet-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    >
+                      Favorite
+                    </button>
+                  </Link>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
                   <Link to="/about">
                     <button
                       className={`${
@@ -66,30 +86,6 @@ export default function DropDown() {
                       About
                     </button>
                   </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Favorite
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Delete
-                  </button>
                 )}
               </Menu.Item>
             </div>

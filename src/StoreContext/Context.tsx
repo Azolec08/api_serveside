@@ -5,6 +5,7 @@ import {
   Reducer,
   Dispatch,
   useReducer,
+  useState,
 } from "react";
 
 import allData from "../api/allData.json";
@@ -13,6 +14,9 @@ import { stateType, actionType } from "../types";
 type contextYpes = {
   state: stateType;
   dispatch: Dispatch<actionType>;
+  data: any[];
+  handleAdd: (itemId: number) => void;
+  handleDelete: (itemId: number) => void;
 };
 
 type childrenType = {
@@ -32,14 +36,10 @@ export function globalContext() {
 
 const reducer: Reducer<stateType, actionType> = (state, action) => {
   switch (action.type) {
-    case "plus":
-      return { ...state, num: state.num + 1 };
+    case "decrement":
+      return { ...state, num: action.payload };
     case "mySwitch":
       return { ...state, switch: action.payload };
-    case "myApi":
-      return { ...state, api: action.payload };
-    case "switchClick":
-      return { ...state, switchTwo: action.item };
     default:
       return state;
   }
@@ -55,18 +55,29 @@ export const UserProvider = ({ children }: childrenType) => {
     return data;
   };
 
+  const [data, setData] = useState(myData());
+
+  function handleAdd(itemId: number) {
+    setData((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+  }
+
+  function handleDelete(itemId: number) {
+    setData((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+  }
+
   const initialization = {
     num: 0,
     switch: false,
-    switchTwo: false,
-    api: myData(),
   };
 
   const [state, dispatch] = useReducer(reducer, initialization);
 
   const contextValue = {
     state,
+    data,
     dispatch,
+    handleDelete,
+    handleAdd,
   };
   return (
     <myContext.Provider value={contextValue}>{children}</myContext.Provider>

@@ -15,12 +15,8 @@ export interface cardType {
 export type stateType = {
   num: number;
   switch: boolean;
-  switchTwo: boolean;
-  api: any[];
 };
 
 export type actionType =
-  | { type: "plus" }
-  | { type: "mySwitch"; payload: boolean }
-  | { type: "myApi"; payload: any[] }
-  | { type: "switchClick"; item: boolean };
+  | { type: "decrement"; payload: number }
+  | { type: "mySwitch"; payload: boolean };

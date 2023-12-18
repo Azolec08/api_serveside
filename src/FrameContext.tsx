@@ -6,7 +6,9 @@ import Footer from "./Components/Footer";
 const FrameContext = () => {
   return (
     <div>
-      <Nav />
+      <div className=" z-20">
+        <Nav />
+      </div>
       <Outlet />
       <Footer />
     </div>

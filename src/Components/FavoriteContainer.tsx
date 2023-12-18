@@ -7,17 +7,16 @@ interface CardProps {
   allData: cardType;
 }
 
-export default function AnimeCard({ allData }: CardProps) {
+export default function FavoriteContainer({ allData }: CardProps) {
   const { title, img, text, year } = allData;
+  const { state, dispatch, handleDelete } = globalContext();
 
-  const { data, handleAdd, state, dispatch } = globalContext();
-
-  const handleClick = () => {
-    handleAdd(allData.id);
-    dispatch({ type: "decrement", payload: state.num + 1 });
+  const handleMinus = () => {
+    dispatch({ type: "decrement", payload: state.num - 1 });
+    handleDelete(allData.id);
   };
   return (
-    <div>
+    <div className="flex justify-center">
       <div className="card w-[150px] bg-base-100 shadow-xl m-4 md:w-72">
         <a href={img}>
           <img className="w-full h-28 md:h-40" src={img} alt="Shoes" />
@@ -37,24 +36,13 @@ export default function AnimeCard({ allData }: CardProps) {
             <AnimeInfo myData={allData} />
           </div>
           <div className="flex justify-center  ">
-            {data[allData.id] === 0 ? (
-              <button
-                className="text-white text-[8px] py-2 px-3 bg-blue-500 text-md rounded-md
-                md:py-2 md:px-3 md:text-sm
-                "
-                onClick={handleClick}
-              >
-                Add To Favorites
-              </button>
-            ) : (
-              <button
-                className="text-white text-[8px] py-2 px-3 bg-red-500 text-md rounded-md
-              md:py-2 md:px-3 md:text-sm
-              "
-              >
-                Added to Favorites
-              </button>
-            )}
+            <button
+              onClick={handleMinus}
+              className="text-white text-[8px] py-2 px-7 bg-red-500 text-md rounded-md
+              md:py-2 md:px-11 md:text-sm"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
