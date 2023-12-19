@@ -47,9 +47,11 @@ export default function Nav() {
           </ul>
         </div>
         <div className="flex justify-end w-2/3 ">
-          <button className="font-semibold text-white p-2 rounded-md bg-button-texture bg-cover">
-            Message Us
-          </button>
+          <Link to="/email">
+            <button className="font-semibold text-white p-2 rounded-md bg-button-texture bg-cover">
+              Message Us
+            </button>
+          </Link>
         </div>
       </div>
     </div>
