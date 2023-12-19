@@ -5,8 +5,8 @@ import Footer from "./Components/Footer";
 
 const FrameContext = () => {
   return (
-    <div>
-      <div className=" z-20">
+    <div className="scroll-smooth">
+      <div className=" z-20" id="upper-nav">
         <Nav />
       </div>
       <Outlet />

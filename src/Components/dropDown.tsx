@@ -63,7 +63,7 @@ export default function DropDown() {
                     {state.num === 0 ? (
                       <span className="absolute p-2 left-7"></span>
                     ) : (
-                      <span className="w-[0] absolute top-2 p-2 left-[60px] rounded-full bg-red-500"></span>
+                      <span className="w-[0] absolute top-1 p-2 left-[60px] rounded-full bg-red-500"></span>
                     )}
                     <button
                       className={`${

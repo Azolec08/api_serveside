@@ -5,6 +5,7 @@ import { Combobox } from "@headlessui/react";
 import PulseLoader from "react-spinners/PulseLoader";
 import PuffLoader from "react-spinners/PuffLoader";
 import { globalContext } from "../StoreContext/Context";
+import ScrollUp from "../Components/ScrollUp";
 
 const Cards = () => {
   const [selectedPerson, setSelectedPerson] = useState(allData);
@@ -64,6 +65,7 @@ const Cards = () => {
               )}
             </button>
           </div>
+          <ScrollUp />
           <Combobox.Options className="absolute h-[195px] z-10 overflow-hidden w-72 top-[135px]">
             {filteredPeople.map((person) => (
               <Combobox.Option key={person.id} value={person} as={Fragment}>
